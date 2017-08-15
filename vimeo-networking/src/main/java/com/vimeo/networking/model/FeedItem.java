@@ -25,6 +25,7 @@ package com.vimeo.networking.model;
 import com.google.gson.annotations.SerializedName;
 import com.vimeo.stag.UseStag;
 
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.io.Serializable;
@@ -35,7 +36,7 @@ import java.util.Date;
  */
 @SuppressWarnings("unused")
 @UseStag
-public class FeedItem implements Serializable {
+public class FeedItem implements Serializable, HasUniqueKey {
 
     private static final long serialVersionUID = -8744477085158366576L;
 
@@ -147,6 +148,12 @@ public class FeedItem implements Serializable {
         }
 
         return AttributionType.NONE;
+    }
+
+    @NotNull
+    @Override
+    public String getUniqueKey() {
+        return mClip.getResourceKey();
     }
 
     @Override

@@ -38,7 +38,7 @@ import java.io.Serializable;
  */
 @SuppressWarnings("unused")
 @UseStag
-public class Recommendation implements Serializable {
+public class Recommendation implements Serializable, HasUniqueKey {
 
     private static final long serialVersionUID = -1451431453348153582L;
 
@@ -80,7 +80,7 @@ public class Recommendation implements Serializable {
     @SerializedName("description")
     protected String mDescription;
 
-    @Nullable
+    @NotNull
     @SerializedName("resource_key")
     protected String mResourceKey;
 
@@ -108,7 +108,7 @@ public class Recommendation implements Serializable {
         return mDescription;
     }
 
-    @Nullable
+    @NotNull
     public String getResourceKey() {
         return mResourceKey;
     }
@@ -122,6 +122,12 @@ public class Recommendation implements Serializable {
         } else {
             return RecommendationType.NONE;
         }
+    }
+
+    @NotNull
+    @Override
+    public String getUniqueKey() {
+        return mResourceKey;
     }
     // </editor-fold>
 
