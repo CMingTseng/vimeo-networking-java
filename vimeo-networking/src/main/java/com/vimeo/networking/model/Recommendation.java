@@ -38,7 +38,7 @@ import java.io.Serializable;
  */
 @SuppressWarnings("unused")
 @UseStag
-public class Recommendation implements Serializable, HasUniqueKey {
+public class Recommendation implements Serializable, KeyProvider {
 
     private static final long serialVersionUID = -1451431453348153582L;
 
@@ -126,7 +126,7 @@ public class Recommendation implements Serializable, HasUniqueKey {
 
     @NotNull
     @Override
-    public String getUniqueKey() {
+    public String provideUniqueKey() {
         return mResourceKey;
     }
     // </editor-fold>

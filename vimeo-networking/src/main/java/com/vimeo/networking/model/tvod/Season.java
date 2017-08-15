@@ -27,7 +27,7 @@ package com.vimeo.networking.model.tvod;
 import com.google.gson.annotations.SerializedName;
 import com.vimeo.networking.model.Connection;
 import com.vimeo.networking.model.ConnectionCollection;
-import com.vimeo.networking.model.HasUniqueKey;
+import com.vimeo.networking.model.KeyProvider;
 import com.vimeo.networking.model.Metadata;
 import com.vimeo.networking.model.User;
 import com.vimeo.stag.UseStag;
@@ -46,7 +46,7 @@ import java.io.Serializable;
  */
 @SuppressWarnings("unused")
 @UseStag
-public class Season implements Serializable, HasUniqueKey {
+public class Season implements Serializable, KeyProvider {
 
     private static final String SEASON_TYPE_MAIN = "main";
     private static final String SEASON_TYPE_EXTRAS = "extras";
@@ -197,7 +197,7 @@ public class Season implements Serializable, HasUniqueKey {
 
     @NotNull
     @Override
-    public String getUniqueKey() {
+    public String provideUniqueKey() {
         return mResourceKey;
     }
 

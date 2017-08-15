@@ -44,7 +44,7 @@ import java.util.concurrent.TimeUnit;
  */
 @SuppressWarnings("unused")
 @UseStag
-public class Video implements Serializable, HasUniqueKey {
+public class Video implements Serializable, KeyProvider {
 
     private static final long serialVersionUID = -1282907783845240057L;
 
@@ -867,7 +867,7 @@ public class Video implements Serializable, HasUniqueKey {
 
     @NotNull
     @Override
-    public String getUniqueKey() {
+    public String provideUniqueKey() {
         return mResourceKey;
     }
 

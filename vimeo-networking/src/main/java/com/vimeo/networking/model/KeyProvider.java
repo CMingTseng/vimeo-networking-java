@@ -9,7 +9,7 @@ import org.jetbrains.annotations.NotNull;
  * <p>
  * Created by restainoa on 8/15/17.
  */
-public interface HasUniqueKey {
+public interface KeyProvider {
 
     /**
      * Returns the unique key.
@@ -17,6 +17,6 @@ public interface HasUniqueKey {
      * @return the unique key, must not be null.
      */
     @NotNull
-    String getUniqueKey();
+    String provideUniqueKey();
 
 }

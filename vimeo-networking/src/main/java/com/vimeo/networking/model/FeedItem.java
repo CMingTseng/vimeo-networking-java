@@ -36,7 +36,7 @@ import java.util.Date;
  */
 @SuppressWarnings("unused")
 @UseStag
-public class FeedItem implements Serializable, HasUniqueKey {
+public class FeedItem implements Serializable, KeyProvider {
 
     private static final long serialVersionUID = -8744477085158366576L;
 
@@ -152,7 +152,7 @@ public class FeedItem implements Serializable, HasUniqueKey {
 
     @NotNull
     @Override
-    public String getUniqueKey() {
+    public String provideUniqueKey() {
         return mClip.getResourceKey();
     }
 
