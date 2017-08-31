@@ -41,7 +41,7 @@ import java.util.Date;
  */
 @SuppressWarnings("unused")
 @UseStag
-public class User implements Serializable, Followable {
+public class User implements Serializable, Followable, KeyProvider {
 
     private static final long serialVersionUID = -4112910222188194647L;
     private static final String ACCOUNT_BASIC = "basic";
@@ -421,5 +421,11 @@ public class User implements Serializable, Followable {
     @Override
     public int hashCode() {
         return this.mUri != null ? this.mUri.hashCode() : 0;
+    }
+
+    @NotNull
+    @Override
+    public String provideUniqueKey() {
+        return mUri;
     }
 }
